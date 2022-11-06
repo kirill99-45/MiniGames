@@ -1,0 +1,118 @@
+@import '../../../../UI/variables';
+
+.game__over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45vw;
+  height: 70vh;
+  background: #03A9F4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 10px;
+  border-radius: $borderRadius;
+  .image {
+    position: absolute;
+    z-index: -1;
+    width: 45vw;
+    height: 70vh;
+    object-position: center;
+    object-fit: contain;
+  }
+  h1 {
+    margin-top: 10px;
+    color: $textColor;
+    text-transform: uppercase;
+  }
+  .statistic {
+    display: flex;
+    justify-content: space-between;
+    span {
+      padding: 20px 5px;
+      // border: solid 1px black;
+      border-radius: $borderRadius;
+      width: 30%;
+      text-align: center;
+      background: #2196F3;
+      color: white;
+      box-shadow: 0px 0px 6px white;
+    }
+  }
+  .options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    column-gap: 20px;
+    .button {
+      padding: 10px 20px;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: $borderRadius;
+      font-size: 20px;
+      width: 40%;
+      color: $textColor;
+      text-align: center;
+      transition: $buttonScaleTransition;
+      &:hover {
+        transform: scale($buttonScaleTransform);
+        transition: $buttonScaleTransition;
+      }
+      &:focus {
+        background: #e3e2e2e8;
+      }
+      &:active {
+        transform: scale(98%);
+        transition: $buttonScaleTransition;
+      }
+    }
+    a {
+      padding: 10px 20px;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: white;
+      border-radius: $borderRadius;
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      width: 40%;
+      color: $textColor;
+      text-align: center;
+      transition: $buttonScaleTransition;
+      &:hover {
+        transform: scale($buttonScaleTransform);
+        transition: $buttonScaleTransition;
+      }
+      &:focus {
+        background: #e3e2e2e8;
+      }
+      &:active {
+        transform: scale(99%);
+        transition: $buttonScaleTransition;
+      }
+    }
+  }
+}
+
+.layout {
+  position: fixed;
+  top: 0; right: 0; left: 0; bottom: 0;
+  background-color: rgb(0 0 0 / 95%);
+  z-index: 4;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
