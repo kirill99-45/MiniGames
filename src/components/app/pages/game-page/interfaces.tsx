@@ -1,7 +1,15 @@
+export interface ICurrentOption {
+  option : string,
+  index : number,
+  correctResult : number,
+}
+
 export interface ILevel {
   level : number,
   result : boolean,
-  isPlayed : boolean
+  currentOption: ICurrentOption,
+  answers : number[]
+  isPlayed : boolean,
 }
 
 export interface IResults {
@@ -11,7 +19,7 @@ export interface IResults {
   inRow : number,
 }
 
-export interface ICurrentOption {
-  option : number,
-  index : number,
+export interface IHelper {
+  countOfHelps : number,
+  attempts? : ILevel[],
 }

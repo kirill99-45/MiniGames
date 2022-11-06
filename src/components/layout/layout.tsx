@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { Outlet } from 'react-router-dom';
 import { Header } from './header';
@@ -8,7 +8,7 @@ import { ModalChooseLevel } from '../Modals/modal__level';
 import styles from './style.module.scss';
 
 
-export const Layout = () => {
+export const Layout: React.FC = () => {
 
   const [sidebarState, setSidebarState] = useState(false)
 
