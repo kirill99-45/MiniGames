@@ -1,14 +1,27 @@
+import { useSelector, useDispatch } from 'react-redux';
+
+import { IMainSettingsReducer } from '../Redux/main-settings-reducer';
+
+import { MAIN_SETTINGS } from '../icons/settings';
+
 import styles from './style.module.scss';
 
-interface IProps {
-  sidebarState : boolean,
-}
 
-export const Sidebar: React.FC<IProps> = ({ sidebarState }) => {
+export const Sidebar = () => {
 
-  return (
-    <div className={sidebarState ? styles.sidebar : styles.sidebar__active}>
+    const settings = useSelector((state: any) => state.mainSettingsReducer)
 
-    </div>
-  )
+    console.log(MAIN_SETTINGS);
+
+    return (
+        <div className={styles.sidebar}>
+            <button className={styles.button}>
+                <img src={MAIN_SETTINGS.themes[0]} />
+
+            </button>
+            <button className={styles.button}>
+                <img src={MAIN_SETTINGS.sounds[0]} />
+            </button>
+        </div>
+    )
 }

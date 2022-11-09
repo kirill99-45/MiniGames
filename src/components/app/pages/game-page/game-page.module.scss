@@ -11,56 +11,10 @@ $boxShadow : 0px 0px 8px #afb2b369;
   height: 80vh;
   padding: 20px;
   column-gap: 30px;
+  position: relative;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  row-gap: 10px;
-  .help, .promts {
-    padding: 10px;
-    border-radius: $borderRadius;
-    text-align: center;
-    box-shadow: $boxShadow;
-  }
-  .promts {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    span:last-child {
-      font-size: 26px;
-      padding: 10px;
-    }
-    span {
-      text-align: left;
-    }
-  }
-  .help {
-    position: relative;
-    cursor: pointer;
-    .icon {
-      width: 60px;
-      height: 60px;
-    }
-    &:hover:before {
-      content: "Подсказка";
-      position: absolute;
-      font-size: 14px;
-      font-weight: 600;
-      display: flex;
-      justify-self: center;
-      align-items: center;
-      padding: 15px 30px;
-      background-color: $blueBackground;
-      color: white;
-      border-radius: $borderRadius;
-      right: -10px;
-      top: 50%;
-      transform: translate(100%, -50%);
-      z-index: 2;
-    }
-  }
-}
+
 
 .app {
   width: 100%;
@@ -69,6 +23,21 @@ $boxShadow : 0px 0px 8px #afb2b369;
   row-gap: 10px;
   align-items: center;
   flex-direction: column;
+}
+
+.in-row {
+  height: 50px;
+  background: #75ed75;
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  right: 20px;
+  border-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 20px;
+  color: black;
 }
 
 .header {
@@ -82,16 +51,19 @@ $boxShadow : 0px 0px 8px #afb2b369;
   justify-content: center;
   flex-direction: column;
   row-gap: 10px;
+
   .levels {
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 10px;
+
     .level {
       width: 50px;
       height: 50px;
       border-radius: 50%;
       position: relative;
+
       .result {
         width: 20px;
         height: 20px;
@@ -102,6 +74,7 @@ $boxShadow : 0px 0px 8px #afb2b369;
       }
     }
   }
+
   .timer {
     font-size: 22px;
     width: 100%;
@@ -111,10 +84,11 @@ $boxShadow : 0px 0px 8px #afb2b369;
     flex-direction: column;
     row-gap: 6px;
     overflow: hidden;
+
     .timer__state {
       width: 100%;
       height: 10px;
-      background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(241,255,0,1) 32%, rgba(162,255,19,1) 65%, rgba(0,255,8,1) 100%);
+      background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(241, 255, 0, 1) 32%, rgba(162, 255, 19, 1) 65%, rgba(0, 255, 8, 1) 100%);
       position: relative;
       border-radius: $borderRadius;
       overflow: hidden;
@@ -131,12 +105,25 @@ $boxShadow : 0px 0px 8px #afb2b369;
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+
   .option:last-child {
-    background: #9E9E9E;
+    background: #fdd947;
   }
 }
 
 .option {
+  border: solid 1px;
+  font-size: 30px;
+  padding: 15px 30px;
+  border-radius: 20px;
+  text-align: center;
+  min-height: 72px;
+  background: $blueBackground;
+  color: white;
+}
+
+.option_hidden {
+  opacity: 0.2;
   border: solid 1px;
   font-size: 30px;
   padding: 15px 30px;
@@ -156,8 +143,10 @@ $boxShadow : 0px 0px 8px #afb2b369;
   align-items: center;
   justify-content: center;
   column-gap: 10px;
+
   .option {
     cursor: pointer;
+
     &:hover {
       transform: scale(103%);
     }

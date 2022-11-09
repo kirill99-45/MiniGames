@@ -1,58 +1,46 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { ILevel } from './interfaces';
+import { ILevel } from '../interfaces';
 
-import { IconClose, IconCheck } from '../../../icons/icons';
+import { IconClose, IconCheck } from '../../../../icons/icons';
 
-import styles from './game-page.module.scss'
+import styles from '../game-page.module.scss'
+import { getReadableTime } from './sidebar/model';
+import { LEVEL_DURATION } from '../constants';
 
 
 interface IProps {
-  levels: ILevel[],
+  levels: any[],
   currentLevel: number,
-  setGameOver: Dispatch<SetStateAction<boolean>>,
   timerState: boolean,
-  setTimerState: Dispatch<SetStateAction<boolean>>,
   setDuration: Dispatch<SetStateAction<number>>,
+  setGameOver: Dispatch<SetStateAction<boolean>>,
+  setTimerState: Dispatch<SetStateAction<boolean>>,
   setCurrentLevel: Dispatch<SetStateAction<number>>,
 }
 
-export const Header: React.FC<IProps> = ({ levels, currentLevel, setGameOver, timerState, setTimerState, setCurrentLevel }) => {
+export const Header: React.FC<IProps> = ({ levels, currentLevel, timerState, setDuration, setGameOver, setTimerState, setCurrentLevel }) => {
 
-
-  const TIMER_DURATION = 60
-
-  const [timer, setTimer] = useState<number>(TIMER_DURATION)
+  const [timer, setTimer] = useState<number>(LEVEL_DURATION)
   const [timerScale, setTimerScale] = useState(-100)
 
-  const TIMER_SCALE_RATION = +((100 / TIMER_DURATION).toFixed(2))
+  const TIMER_SCALE_RATION = +((100 / LEVEL_DURATION).toFixed(2))
 
   //   useEffect(() => {
   //    if (timerState && timer > 0) {
   //      const startTimer = setInterval(() => {
+  //        setDuration(prev => prev + 1)
   //        setTimer(timer - 1)
   //        setTimerScale(timerScale + TIMER_SCALE_RATION)
   //      }, 1000)
 
-  //      return () => {
-  //        clearInterval(startTimer)
-  //      }
+  //      return () => clearInterval(startTimer)
   //    } else {
   //        setGameOver(true)
-  //        setTimer(TIMER_DURATION)
+  //        setTimer(LEVEL_DURATION)
   //        setTimerState(false)
   //        setTimerScale(-100)
   //    }
   //  }, [timer, timerState])
-
-  const getZero = (time: number): string => {
-    return time > 9 ? `${time}` : `0${time}`
-  }
-
-  const getReadableTime = (time: number): string => {
-    const minutes = Math.floor(time / 60)
-    const seconds = time - (minutes * 60)
-    return `${getZero(minutes)}:${getZero(seconds)}`
-  }
 
   const levelHandler = (event: React.MouseEvent<HTMLDivElement>) => {
     const element = event.currentTarget.getAttribute('data-id')
@@ -71,7 +59,7 @@ export const Header: React.FC<IProps> = ({ levels, currentLevel, setGameOver, ti
                 data-id={index}
                 className={styles.level}
                 style={{ background: !level.isPlayed ? (level.level === currentLevel + 1 ? '#fdd947' : '#dfdadaad') : (level.result ? '#52e952cc' : '#ed0a0ac4') }}
-                onClick={levelHandler}
+                onClick={!level.isPlayed ? levelHandler : () => ''}
               >
                 {level.isPlayed && <img src={level.result ? IconCheck : IconClose} className={styles.result} />}
               </div>

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './modal__level.module.scss';
@@ -8,26 +8,63 @@ import IconCLose from '../icons/close.png';
 
 
 interface IProps {
-  setIsChooseLevelModal : Dispatch<SetStateAction<boolean>>,
-  operation : string,
+  difficult : number,
+  setDifficult : Dispatch<SetStateAction<number>>,
+  operation: string,
+  setIsChooseLevelModal: Dispatch<SetStateAction<boolean>>,
 }
 
-export const ModalChooseLevel: React.FC<IProps> = ({ setIsChooseLevelModal, operation }) => {
+export const ModalChooseLevel: React.FC<IProps> = ({  difficult, setDifficult, operation, setIsChooseLevelModal }) => {
 
-  const levels = new Array(9).fill(null).map((_, index) => index + 1)
+  const COUNT_OF_GAME_LEVELS: number = 10
+
+  const levels = new Array(COUNT_OF_GAME_LEVELS).fill(null).map((_, index) => index + 1)
+
+
+  const DIFFICULTIES = [{ difficult: 1, title: 'Легкий' }, { difficult: 2, title: 'Средний' }, { difficult: 3, title: 'Тяжелый' }]
+
+  const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const difficult = event.currentTarget.getAttribute('data-difficult')
+
+    if (difficult) {
+      setDifficult(+difficult)
+    }
+  }
 
   return (
-    <div className={styles.wrapper}>
-      <img src={IconCLose} className={styles.close} onClick={() => setIsChooseLevelModal(false)}/>
-      {
-        levels.map(level => {
-          return (
-            <Link className={styles.level} data-level={level} to={`game/${level}`} state={operation}>
-              <img src={IconCoin} className={styles.icon}/>
-            </Link>
-          )
-        })
-      }
+    <div className={styles.layout}>
+      <div className={styles.wrapper}>
+        <img src={IconCLose} className={styles.close} onClick={() => setIsChooseLevelModal(false)} />
+        <div className={styles.levels}>
+          {
+            levels.map(level => {
+              return (
+                <Link className={styles.level} data-level={level} to={`game/${level}`} state={{ operation, difficult }}>
+                  <img src={IconCoin} className={styles.icon} />
+                </Link>
+              )
+            })
+          }
+        </div>
+        <div className={styles.difficulty}>
+          {
+            DIFFICULTIES.map(item => {
+              return (
+                <div className={styles['difficulty-level']}>
+                  <button
+                    className={item.difficult === difficult ? styles['difficulty-button-active'] : styles['difficulty-button']}
+                    data-difficult={item.difficult}
+                    onClick={buttonHandler}
+                  >
+                    {item.title}
+                  </button>
+                  <div className={styles['difficulty-circle']} style={{ background: item.difficult === difficult ? '#15475c' : 'white' }} />
+                </div>
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
   )
 }

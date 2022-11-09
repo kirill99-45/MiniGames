@@ -1,3 +1,3 @@
 import { randomIntFromInterval } from './randomIntFromInterval';
 
-export { randomIntFromInterval };
+export { randomIntFromInterval }

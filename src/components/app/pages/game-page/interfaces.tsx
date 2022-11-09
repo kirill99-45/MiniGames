@@ -4,16 +4,21 @@ export interface ICurrentOption {
   correctResult : number,
 }
 
+export interface IAnswer {
+  answer : number,
+  isHidden : true,
+}
+
 export interface ILevel {
   level : number,
   result : boolean,
   currentOption: ICurrentOption,
-  answers : number[]
+  answers : IAnswer[]
   isPlayed : boolean,
 }
 
 export interface IResults {
-  levels : ILevel[],
+  levels : any[],
   correct : number,
   scores : number,
   inRow : number,
@@ -21,5 +26,9 @@ export interface IResults {
 
 export interface IHelper {
   countOfHelps : number,
-  attempts? : ILevel[],
+  attempts? : any[],
+}
+
+export interface ICash {
+  [key: number] : number,
 }

@@ -1,14 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
+import { IconMembership } from '../icons/icons';
 
 import styles from './style.module.scss';
 
-import IconMenu from '../icons/menu.png';
-import IconMembership from '../icons/crown.png';
-import IconCrown from '../icons/crown.png';
-
 interface IProps {
-  sidebarState : boolean,
-  setSidebarState : Dispatch<SetStateAction<boolean>>,
+  sidebarState: boolean,
+  setSidebarState: Dispatch<SetStateAction<boolean>>,
 }
 
 export const Header: React.FC<IProps> = ({ setSidebarState, sidebarState }) => {
@@ -18,18 +15,15 @@ export const Header: React.FC<IProps> = ({ setSidebarState, sidebarState }) => {
   return (
     <header className={styles.header}>
       <div className={styles.membership}>
-        <img src={IconMembership} className={styles.header__icon}/>
+        <img src={IconMembership} className={styles.header__icon} />
       </div>
       <div className={styles.user}>
-        <img src={photo} className={styles.user__photo}/>
-        <img src={IconCrown} className={styles.user__membership}/>
         <div className={styles.user__data}>
           <span>Кирилл</span>
           <span>Рогов</span>
         </div>
-      </div>
-      <div className={styles.menu}>
-        <img src={IconMenu} className={styles.header__icon} onClick={() => setSidebarState(!sidebarState)}/>
+        <img src={photo} className={styles.user__photo} />
+        <img src={IconMembership} className={styles.user__membership} />
       </div>
     </header>
   )
