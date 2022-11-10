@@ -1,6 +1,23 @@
-interface IInitState {
+import { CHANGE_APP_SOUND, CHANGE_APP_THEME } from './types';
+
+import { MAIN_SETTINGS } from '../icons/icons';
+
+
+const { themes, sounds } = MAIN_SETTINGS;
+
+interface ISound {
     isSound : boolean,
-    theme : string,
+    icon : string,
+}
+
+interface ITheme {
+    isLight : boolean,
+    icon : string,
+}
+
+interface IInitState {
+    sound : ISound,
+    theme : ITheme,
     volume : number,
 }
 
@@ -9,8 +26,14 @@ interface IAction {
 }
 
 const initState: IInitState = {
-    isSound : true,
-    theme : 'light',
+    sound : {
+        isSound : true,
+        icon : sounds.sound,
+    },
+    theme : {
+        isLight : true,
+        icon : themes.light,
+    },
     volume : 1,
 }
 
@@ -21,6 +44,25 @@ export interface IMainSettingsReducer {
 
 export const mainSettingsReducer = (state: IInitState = initState, action: IAction) => {
     switch(action.type) {
+        case CHANGE_APP_SOUND: {
+            return {
+                ...state,
+                sound : {
+                    isSound : !state.sound.isSound,
+                    icon : state.sound.isSound ?  sounds.mute : sounds.sound,
+                }
+            }
+        }
+        case CHANGE_APP_THEME: {
+            return {
+                ...state,
+                theme : {
+                    isLight : !state.theme.isLight,
+                    icon : !state.theme.isLight ? themes.light : themes.dark,
+                }
+            }
+        }
+
         default:
             return state
     }

@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
+import { useSelector } from "react-redux";
 import { useParams, useLocation, Link } from 'react-router-dom';
 
 import { Sidebar } from './components/sidebar/sidebar';
@@ -19,6 +20,9 @@ export const GamePage = () => {
 
   const operation = useLocation().state.operation
   const difficult = useLocation().state.difficult
+
+  const isSound = useSelector((state: any) => state.mainSettingsReducer.sound.isSound)
+  const theme = useSelector((state:any) => state.mainSettingsReducer.theme.isLight) ? 'light' : 'dark'
 
   const { gameLevel } = useParams<{ gameLevel?: string }>()
   const [gameOver, setGameOver] = useState<boolean>(false)
@@ -54,7 +58,7 @@ export const GamePage = () => {
 
     setCounterPlayedLevels(prev => prev + 1)
     
-    getSoundForLevelResult(LevelResult)
+    getSoundForLevelResult(LevelResult, isSound)
 
     if (LevelResult) {
       setResult(prev => gotTheCorrectAnswer(prev, currentLevel))
@@ -71,7 +75,7 @@ export const GamePage = () => {
       const nextLevel = getUnplayedLevel(result.levels, currentLevel)
       if (nextLevel !== null) setCurrentLevel(nextLevel)
     } else {
-      getSoundForGameResult(result.correct)
+      getSoundForGameResult(result.correct, isSound)
       setTimerState(false)
       setGameOver(true);
     }
@@ -100,13 +104,14 @@ export const GamePage = () => {
   }, [operation, level])
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles[`wrapper-${theme}`]}>
       <Sidebar
         helperState={helperState}
         level={level}
         levels={result.levels}
         currentLevel={currentLevel}
         difficult={difficult}
+        theme={theme}
         setHelperState={setHelperState}
         setResult={setResult}
       />

@@ -67,7 +67,8 @@ export const getUnplayedLevel = (levels: any[], currentLevel: number): number | 
 }
 
 
-export const getSoundForLevelResult = (result: boolean) => {
+export const getSoundForLevelResult = (result: boolean, isSound : boolean) => {
+    if (!isSound) return
     if (result) {
         new Audio(CORRECT_ANSWER).play()
     }
@@ -76,7 +77,8 @@ export const getSoundForLevelResult = (result: boolean) => {
     }
 }
 
-export const getSoundForGameResult = (result: number) => {
+export const getSoundForGameResult = (result: number, isSound : boolean) => {
+    if (!isSound) return
     if (((result / 10) * 100) > 60) {
         new Audio(WIN_GAME).play()
     }

@@ -9,12 +9,13 @@ import IconCLose from '../icons/close.png';
 
 interface IProps {
   difficult : number,
-  setDifficult : Dispatch<SetStateAction<number>>,
+  theme : string,
   operation: string,
+  setDifficult : Dispatch<SetStateAction<number>>,
   setIsChooseLevelModal: Dispatch<SetStateAction<boolean>>,
 }
 
-export const ModalChooseLevel: React.FC<IProps> = ({  difficult, setDifficult, operation, setIsChooseLevelModal }) => {
+export const ModalChooseLevel: React.FC<IProps> = ({  difficult, theme, operation, setDifficult,  setIsChooseLevelModal, }) => {
 
   const COUNT_OF_GAME_LEVELS: number = 10
 
@@ -32,7 +33,7 @@ export const ModalChooseLevel: React.FC<IProps> = ({  difficult, setDifficult, o
   }
 
   return (
-    <div className={styles.layout}>
+    <div className={styles[`layout-${theme}`]}>
       <div className={styles.wrapper}>
         <img src={IconCLose} className={styles.close} onClick={() => setIsChooseLevelModal(false)} />
         <div className={styles.levels}>

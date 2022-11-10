@@ -2,7 +2,7 @@
 
 $boxShadow : 0px 0px 8px #afb2b369;
 
-.wrapper {
+.wrapper-dark {
   display: flex;
   align-items: start;
   justify-content: center;
@@ -12,9 +12,296 @@ $boxShadow : 0px 0px 8px #afb2b369;
   padding: 20px;
   column-gap: 30px;
   position: relative;
+
+  .header {
+    width: 100%;
+    padding: 20px;
+    background: $darkMinorBackgrounds;
+    border-radius: $borderRadius;
+    overflow: hidden;
+    box-shadow: $boxShadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+  
+    .levels {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10px;
+  
+      .level {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: relative;
+  
+        .result {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  
+    .timer {
+      font-size: 22px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 6px;
+      overflow: hidden;
+      color: white;
+  
+      .timer__state {
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(241, 255, 0, 1) 32%, rgba(162, 255, 19, 1) 65%, rgba(0, 255, 8, 1) 100%);
+        position: relative;
+        border-radius: $borderRadius;
+        overflow: hidden;
+      }
+    }
+  }
+
+  .main {
+    padding: 20px;
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    background: $darkMinorBackgrounds;
+  
+    .option:last-child {
+      background: #fdd947;
+    }
+  
+    .option {
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+    
+    .option_hidden {
+      opacity: 0.2;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+  }
+
+  .footer {
+    background: $darkMinorBackgrounds;
+    padding: 20px;
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  
+  
+    .option {
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+    
+    .option_hidden {
+      opacity: 0.2;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+  
+    .option {
+      cursor: pointer;
+  
+      &:hover {
+        transform: scale(103%);
+      }
+    }
+  }
 }
 
-
+.wrapper-light {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin-top: 90px;
+  width: 90vw;
+  height: 80vh;
+  padding: 20px;
+  column-gap: 30px;
+  position: relative;
+  
+  .header {
+    width: 100%;
+    padding: 20px;
+    border-radius: $borderRadius;
+    overflow: hidden;
+    box-shadow: $boxShadow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 10px;
+  
+    .levels {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      column-gap: 10px;
+  
+      .level {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        position: relative;
+  
+        .result {
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  
+    .timer {
+      font-size: 22px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      row-gap: 6px;
+      overflow: hidden;
+  
+      .timer__state {
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(241, 255, 0, 1) 32%, rgba(162, 255, 19, 1) 65%, rgba(0, 255, 8, 1) 100%);
+        position: relative;
+        border-radius: $borderRadius;
+        overflow: hidden;
+      }
+    }
+  }
+  
+  
+  
+  .main {
+    padding: 20px;
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  
+    .option:last-child {
+      background: #fdd947;
+    }
+  
+    .option {
+      border: solid 1px;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+    
+    .option_hidden {
+      opacity: 0.2;
+      border: solid 1px;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+  }
+  
+  
+  
+  .footer {
+    padding: 20px;
+    width: 100%;
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+  
+    .option {
+      cursor: pointer;
+  
+      &:hover {
+        transform: scale(103%);
+      }
+    }
+  
+    .option {
+      border: solid 1px;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+    
+    .option_hidden {
+      opacity: 0.2;
+      border: solid 1px;
+      font-size: 30px;
+      padding: 15px 30px;
+      border-radius: 20px;
+      text-align: center;
+      min-height: 72px;
+      background: $blueBackground;
+      color: white;
+    }
+  }
+}
 
 .app {
   width: 100%;
@@ -40,115 +327,6 @@ $boxShadow : 0px 0px 8px #afb2b369;
   color: black;
 }
 
-.header {
-  width: 100%;
-  padding: 20px;
-  border-radius: $borderRadius;
-  overflow: hidden;
-  box-shadow: $boxShadow;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  row-gap: 10px;
 
-  .levels {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    column-gap: 10px;
 
-    .level {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      position: relative;
 
-      .result {
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    }
-  }
-
-  .timer {
-    font-size: 22px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    row-gap: 6px;
-    overflow: hidden;
-
-    .timer__state {
-      width: 100%;
-      height: 10px;
-      background: linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(241, 255, 0, 1) 32%, rgba(162, 255, 19, 1) 65%, rgba(0, 255, 8, 1) 100%);
-      position: relative;
-      border-radius: $borderRadius;
-      overflow: hidden;
-    }
-  }
-}
-
-.main {
-  padding: 20px;
-  width: 100%;
-  box-shadow: $boxShadow;
-  border-radius: $borderRadius;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 10px;
-
-  .option:last-child {
-    background: #fdd947;
-  }
-}
-
-.option {
-  border: solid 1px;
-  font-size: 30px;
-  padding: 15px 30px;
-  border-radius: 20px;
-  text-align: center;
-  min-height: 72px;
-  background: $blueBackground;
-  color: white;
-}
-
-.option_hidden {
-  opacity: 0.2;
-  border: solid 1px;
-  font-size: 30px;
-  padding: 15px 30px;
-  border-radius: 20px;
-  text-align: center;
-  min-height: 72px;
-  background: $blueBackground;
-  color: white;
-}
-
-.footer {
-  padding: 20px;
-  width: 100%;
-  box-shadow: $boxShadow;
-  border-radius: $borderRadius;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: 10px;
-
-  .option {
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(103%);
-    }
-  }
-}

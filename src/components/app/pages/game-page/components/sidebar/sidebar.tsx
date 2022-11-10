@@ -15,15 +15,16 @@ interface IProps {
     levels : any[],
     currentLevel : number,
     difficult: number,
+    theme: string,
     setHelperState : Dispatch<SetStateAction<IHelper>>,
     setResult : Dispatch<SetStateAction<IResults>>,
 }
 
-export const Sidebar: React.FC<IProps> = ({ helperState, level, levels, currentLevel, difficult, setHelperState, setResult }) => {
+export const Sidebar: React.FC<IProps> = ({ helperState, level, levels, currentLevel, difficult, theme, setHelperState, setResult }) => {
 
     return (
         <>
-            <div className={styles.sidebar}>
+            <div className={styles[`sidebar-${theme}`]}>
                 <Helper
                     helperState={helperState}
                     levels={levels}

@@ -4,6 +4,6 @@ import IconSound from './sound.png';
 import IconMute from './mute.png';
 
 export const MAIN_SETTINGS = {
-    themes : [IconDarkTheme, IconLightTheme],
-    sounds : [IconMute, IconSound],
+    themes : { light : IconLightTheme, dark : IconDarkTheme },
+    sounds : { sound : IconSound, mute : IconMute },
 }

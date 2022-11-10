@@ -1,0 +1,2 @@
+export const CHANGE_APP_SOUND = 'CHANGE_APP_SOUND';
+export const CHANGE_APP_THEME = 'CHANGE_APP_THEME'

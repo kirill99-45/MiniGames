@@ -1,8 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { IMainSettingsReducer } from '../Redux/main-settings-reducer';
-
-import { MAIN_SETTINGS } from '../icons/settings';
+import { changeAppSound, changeAppTheme } from '../Redux/actions';
 
 import styles from './style.module.scss';
 
@@ -10,17 +8,29 @@ import styles from './style.module.scss';
 export const Sidebar = () => {
 
     const settings = useSelector((state: any) => state.mainSettingsReducer)
+    const dispatch = useDispatch()
 
-    console.log(MAIN_SETTINGS);
+
+    const getIcon = (param: string) => {
+        return settings[param].icon
+    }
+
+    const soundHandler = () => {
+        dispatch(changeAppSound())
+    }
+    
+    const themeHandler = () => {
+        dispatch(changeAppTheme())
+    }
+    
 
     return (
         <div className={styles.sidebar}>
-            <button className={styles.button}>
-                <img src={MAIN_SETTINGS.themes[0]} />
-
+            <button className={styles.button} >
+                <img src={getIcon('sound')} onClick={soundHandler} />
             </button>
             <button className={styles.button}>
-                <img src={MAIN_SETTINGS.sounds[0]} />
+                <img src={getIcon('theme')} onClick={themeHandler} />
             </button>
         </div>
     )

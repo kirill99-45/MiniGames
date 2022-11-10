@@ -19,7 +19,6 @@ interface IProps {
 
 export const GameOver: React.FC<IProps> = ({ correct, level, operation, scores, duration, difficult, startAgain }) => {
 
-
   return (
     <div className={styles.layout}>
       <div className={styles.game__over}>

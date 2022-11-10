@@ -1,12 +1,7 @@
 @import '../../../UI/variables';
 
 
-// .wrapper {
-//   margin-top: 40px;
-//   border: solid red;
-// }
-
-.main {
+.main-dark {
   margin-top: 50px;
   width: 600px;
   height: 400px;
@@ -14,51 +9,112 @@
   justify-content: space-between;
   align-items: center;
   border-radius: $borderRadius;
-}
 
-.level__types {
-  width: 45%;
-  box-shadow: 0px 0px 8px #00000059;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: $borderRadius;
-  row-gap: 10px;
-  h2 {
-    transform: translateY(-50%);
-    background: #03A9F4;
-    padding: 10px 20px;
+  .level__types {
+    width: 45%;
+    box-shadow: 0px 0px 8px ;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background: $darkMinorBackgrounds;
+    align-items: center;
     border-radius: $borderRadius;
-    position: relative;
-    color: white;
-  }
-  img {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: -10px;
-    right: -10px;
-    background: #3F51B5;
-    padding: 5px;
-    border-radius: $borderRadius;
-  }
-  .level__options {
-    width: 90%;
-    text-align: center;
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 20px 5px;
-    border-radius: $borderRadius;
-    text-align: center;
-    background: #2196F3;
-    color: white;
-    box-shadow: 0px 0px 6px white;
-    transition: $buttonScaleTransition;
-    &:hover {
-      transform: scale($buttonScaleTransform);
+    row-gap: 10px;
+    h2 {
+      transform: translateY(-50%);
+      background: #03A9F4;
+      padding: 10px 20px;
+      border-radius: $borderRadius;
+      position: relative;
+      color: white;
+    }
+    img {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: -10px;
+      right: -10px;
+      background: #3F51B5;
+      padding: 5px;
+      border-radius: $borderRadius;
+    }
+    .level__options {
+      width: 90%;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 20px 5px;
+      border-radius: $borderRadius;
+      text-align: center;
+      background: #2196F3;
+      color: white;
+      box-shadow: 0px 0px 6px white;
       transition: $buttonScaleTransition;
+      &:hover {
+        transform: scale($buttonScaleTransform);
+        transition: $buttonScaleTransition;
+      }
     }
   }
 }
+
+.main-light {
+  margin-top: 50px;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $borderRadius;
+
+  .level__types {
+    width: 45%;
+    box-shadow: 0px 0px 8px #00000059;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: $borderRadius;
+    row-gap: 10px;
+    h2 {
+      transform: translateY(-50%);
+      background: #03A9F4;
+      padding: 10px 20px;
+      border-radius: $borderRadius;
+      position: relative;
+      color: white;
+    }
+    img {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      top: -10px;
+      right: -10px;
+      background: #3F51B5;
+      padding: 5px;
+      border-radius: $borderRadius;
+    }
+    .level__options {
+      width: 90%;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 20px 5px;
+      border-radius: $borderRadius;
+      text-align: center;
+      background: #2196F3;
+      color: white;
+      box-shadow: 0px 0px 6px white;
+      transition: $buttonScaleTransition;
+      &:hover {
+        transform: scale($buttonScaleTransform);
+        transition: $buttonScaleTransition;
+      }
+    }
+  }
+}
+
+
+
