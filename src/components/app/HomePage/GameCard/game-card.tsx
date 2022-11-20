@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 import styles from './game-card.module.scss';
 
 import { IGame } from '../home-page__model';

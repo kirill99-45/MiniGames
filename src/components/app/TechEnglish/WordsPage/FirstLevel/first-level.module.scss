@@ -1,0 +1,44 @@
+@import '../../../../UI/variables.scss';
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+
+    .correct {
+        background-color: #66bf66;
+        color: white;
+    }
+
+    .wrong {
+        background-color: #d26852;
+        color: white;
+    }
+
+    li {
+        width: 48%;
+        height: 70px;
+        box-shadow: 0px 0px 6px #0000002b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: $borderRadius;
+        cursor: pointer;
+        position: relative;
+        font-weight: 500;
+        color: $textColor;
+
+
+
+        &:before {
+            content: attr(data-index);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 13px;
+            opacity: 0.5;
+        }
+    }
+}

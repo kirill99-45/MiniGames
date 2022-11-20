@@ -1,0 +1,44 @@
+.words-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 40px;
+    padding: 20px;
+    background-color: #e8e8e8;
+
+
+
+    .letters-container {
+        display: flex;
+        column-gap: 5px;
+
+        .wrong {
+            background-color: #ff5e6b;
+        }
+
+        li {
+            padding: 20px;
+            background-color: white;
+        }
+    }
+}
+
+.answer-container {
+    display: flex;
+    padding: 20px;
+    column-gap: 5px;
+    justify-content: center;
+
+    .hidden {
+        display: none;
+    }
+
+    li {
+        padding: 20px;
+        background-color: #e8e8e8;
+        cursor: pointer;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+}  

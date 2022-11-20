@@ -5,6 +5,7 @@ import { GamePage } from './MatnGame/game-page/game-page';
 import { Layout } from '../layout/layout';
 import { HomePage } from './HomePage/home-page';
 import { TechEnglish } from './TechEnglish/tech-english';
+import { WordsPage } from './TechEnglish/WordsPage/words-page';
 
 
 export const App = () => {
@@ -15,6 +16,7 @@ export const App = () => {
           <Route path='math-game/' element={<StartPage />} />
           <Route path='math-game/:gameLevel' element={<GamePage />} />
           <Route path='tech-english' element={<TechEnglish />} />
+          <Route path='tech-english/words' element={<WordsPage/>} />
         </Route>
       </Routes>
   )
