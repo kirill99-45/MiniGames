@@ -1,0 +1,132 @@
+@import '../../../UI/variables.scss';
+
+.game {
+    text-decoration: none;
+    width: 30%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: $borderRadius;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #bde0fe;
+    row-gap: 10px;
+
+    a {
+        text-decoration: none;
+        align-self: start;
+    }
+
+    h3 {
+        height: 40px;
+        border-radius: 12px;
+        padding: 0px 30px;
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: #03a9f4;
+
+    }
+
+    .img-wrapper {
+        width: 100%;
+        height: 75%;
+        border-radius: $borderRadius;
+        overflow: hidden;
+        position: relative;
+        background-color: white;
+
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        color: #03a9f4;
+
+        .score {
+            align-self: start;
+            display: flex;
+            align-items: center;
+            column-gap: 10px;
+            font-size: 16px;
+            border-radius: $borderRadius;
+            background-color: white;
+            padding: 10px;
+            cursor: pointer;
+
+            .score-icons {
+                display: flex;
+                cursor: pointer;
+
+                .score-icon {
+                    opacity: 0.1;
+                }
+
+                .score-icon-active {
+                    color: gold;
+                }
+            }
+
+            .set-score-icons {
+                display: flex;
+                direction: rtl;
+                cursor: pointer;
+
+                .score-icon-active {
+                    color: gold;
+                }
+
+                &>.score-icon {
+                    display: flex;
+                    column-gap: 1px;
+                    opacity: 0.1 !important;
+                }
+
+                &>.score-icon:hover,
+                & .score-icon:hover~svg {
+                    color: gold;
+                    opacity: 1 !important;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+            padding: 0px 30px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-radius: $borderRadius;
+            background-color: white;
+            color: #03a9f4;
+            font-size: 16px;
+
+            &:hover {
+                background-color: #e5e5e5;
+                color: #3F51B5;
+            }
+
+            &:active {
+                transform: scale(97%);
+            }
+
+            &:focus {
+                border: none;
+                outline: none;
+                background-color: #e5e5e5;
+                color: #3F51B5;
+            }
+        }
+    }
+}

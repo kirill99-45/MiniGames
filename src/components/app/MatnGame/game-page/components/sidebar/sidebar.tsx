@@ -22,6 +22,7 @@ interface IProps {
 
 export const Sidebar: React.FC<IProps> = ({ helperState, level, levels, currentLevel, difficult, theme, setHelperState, setResult }) => {
 
+
     return (
         <>
             <div className={styles[`sidebar-${theme}`]}>
@@ -37,7 +38,7 @@ export const Sidebar: React.FC<IProps> = ({ helperState, level, levels, currentL
                     <span>Текущий уровень:</span>
                     <span>{level}</span>
                 </div>
-                <Link className={styles.home} to='/'>
+                <Link className={styles.home} to='/math-game'>
                     <img src={IconHome} className={styles.icon} />
                 </Link>
             </div>

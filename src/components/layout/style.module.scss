@@ -66,8 +66,8 @@
   }
 
   .wrapper {
-    width: 60vw;
-    height: calc(100vh - 130px);
+    width: 80vw;
+    min-height: calc(100vh - 130px);
     margin: auto;
     display: flex;
     justify-content: center;
@@ -76,6 +76,7 @@
     margin-top: 90px;
     border-radius: $borderRadius;
     background: inherit;
+    overflow: hidden;
 
     .sidebar {
       position: fixed;
@@ -109,8 +110,6 @@
       }
     }
   }
-
-
 }
 
 .body-light {
@@ -125,9 +124,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
     height: 90px;
     padding: 0px 20px;
     box-shadow: 0px -5px 8px rgb(0 0 0 / 35%);
+    z-index: 1;
 
     .header__icon {
       height: 40px;
@@ -176,8 +177,8 @@
   }
 
   .wrapper {
-    width: 60vw;
-    height: calc(100vh - 130px);
+    width: 80vw;
+    min-height: calc(100vh - 130px);
     margin: auto;
     display: flex;
     justify-content: center;
@@ -186,6 +187,8 @@
     margin-top: 90px;
     border-radius: $borderRadius;
     background: inherit;
+    overflow: hidden;
+    z-index: 0;
 
     .sidebar {
       position: fixed;

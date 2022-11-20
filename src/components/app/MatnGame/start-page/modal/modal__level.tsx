@@ -1,10 +1,9 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './modal__level.module.scss';
 
-import IconCoin from '../icons/coin.png';
-import IconCLose from '../icons/close.png';
+import { IconCoin, IconClose } from '../../../../icons/icons';
 
 
 interface IProps {
@@ -35,12 +34,12 @@ export const ModalChooseLevel: React.FC<IProps> = ({  difficult, theme, operatio
   return (
     <div className={styles[`layout-${theme}`]}>
       <div className={styles.wrapper}>
-        <img src={IconCLose} className={styles.close} onClick={() => setIsChooseLevelModal(false)} />
+        <img src={IconClose} className={styles.close} onClick={() => setIsChooseLevelModal(false)} />
         <div className={styles.levels}>
           {
             levels.map(level => {
               return (
-                <Link className={styles.level} data-level={level} to={`game/${level}`} state={{ operation, difficult }}>
+                <Link className={styles.level} data-level={level} to={`${level}`} state={{ operation, difficult }}>
                   <img src={IconCoin} className={styles.icon} />
                 </Link>
               )
